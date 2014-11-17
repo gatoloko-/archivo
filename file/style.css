@@ -42,6 +42,20 @@ a{
 	font-family: 'Muli', sans-serif;
 	font-size: 15px;
 }
+
+ul.folder {
+list-style-image: url('folder.png');
+}
+#resultCaja{
+-moz-column-count: 3;
+-moz-column-gap: 20px;
+-webkit-column-count: 3;
+-webkit-column-gap: 20px;
+column-count: 3;
+column-gap: 20px;
+}
+
+/*============================================================================================================================================*/
 .CSSTableGenerator {
 	margin:0px;padding:0px;
 	width:100%;

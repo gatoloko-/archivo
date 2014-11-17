@@ -6,7 +6,13 @@ $(function(){
 	$( "#carpeta" ).dialog({modal: true,autoOpen: false, width: 600});
 	$( "#operacion" ).dialog({modal: true,autoOpen: false, width: 600});
 	$( "#consultarOp" ).dialog({modal: true,autoOpen: false, width: 600});
-	$( "#consultarCaja" ).dialog({modal: true,autoOpen: false, width: 600});
+	$( "#consultarCaja" ).dialog({modal: true,autoOpen: false, width: 600, beforeClose: function( event, ui ) {
+			$( "#resultCaja" ).empty();
+			$( "#ano" ).val("");
+			$( "#mes" ).val("");
+			$( "#numero" ).val("");
+		}
+	});
 });
 
 
@@ -540,7 +546,7 @@ function consultarCaja(){
 	  
 	  posting.done(function( data ) {
 	  //alert(theFolderId);
-	  alert(data);
+	  
 	    if(data!=""){
 	    	$( "#resultCaja" ).empty();
 	    	$( "#resultCaja" ).append(data);

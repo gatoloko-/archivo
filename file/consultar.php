@@ -54,7 +54,9 @@
 			<td><input id="codigoOperacion" width="5"/><button onclick="submitOpsSearch();">Consultar</button></td>
 		</tr>
 		<tr><td><select id="dropUsers" hidden><?php listarUsuarios(); ?></select></td></tr>
-		<tr id="opTable"></tr>
+		<tr id="opTable">
+			<td></td>
+		</tr>
 	</table>
 	
 </div>
@@ -87,7 +89,7 @@
 			<td><input type="text" id="numero" name="numero"/></td>
 			<td><button onclick="consultarCaja();">Consultar</button></td>
 		</tr>
-		<tr><td id="resultCaja"></td></tr>
+		<tr><td id="resultCaja" colspan="3"></td></tr>
 	</table>
 		
 </div>
