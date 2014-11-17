@@ -6,6 +6,7 @@ $(function(){
 	$( "#carpeta" ).dialog({modal: true,autoOpen: false, width: 600});
 	$( "#operacion" ).dialog({modal: true,autoOpen: false, width: 600});
 	$( "#consultarOp" ).dialog({modal: true,autoOpen: false, width: 600});
+	$( "#consultarCaja" ).dialog({modal: true,autoOpen: false, width: 600});
 });
 
 
@@ -497,11 +498,10 @@ function retirarCarpeta(id){
 
 
 function devolverCarpeta(id){
-	console.log(id);
+	//console.log(id);
 	// Get some values from elements on the page:
 	 var term;
-
-	  
+ 
 	 //term = "monthDropdown="+$("#monthDropdown").val() + "&" + "yearDropdown="+ $("#yearDropdown").val();
 	 url = "fDevolver.php";
 	 // Send the data using post
@@ -528,5 +528,29 @@ function devolverCarpeta(id){
 	});
 }
 
+function consultarCaja(){
+	var term;
+ 
+	 //term = "monthDropdown="+$("#monthDropdown").val() + "&" + "yearDropdown="+ $("#yearDropdown").val();
+	 url = "consultar-caja.php";
+	 // Send the data using post
+	 var posting = $.post( url, {ano: $("#ano").val(), mes: $("#mes").val(), numero: $("#numero").val()} );
+	 //alert(term);
+	 // Put the results in a div
+	  
+	  posting.done(function( data ) {
+	  //alert(theFolderId);
+	  alert(data);
+	    if(data!=""){
+	    	$( "#resultCaja" ).empty();
+	    	$( "#resultCaja" ).append(data);
+		//$( "#opTable" ).append( stringOps );
+		}else{
+			alert("Shit!");
+		}
+			 
+	    
+	});
+}
 
 

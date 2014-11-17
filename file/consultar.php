@@ -38,7 +38,8 @@
 			</header>
 			<?php nav() ?>
 			
-			<a class="myButtons" onclick="showDialog('consultarOp');">Consultar operacion</a>
+			<a class="myButtons" onclick="showDialog('consultarOp');">Consultar operacion</a><br/>
+			<a class="myButtons" onclick="showDialog('consultarCaja');">Consultar caja</a>
 			
 			<footer>
 				<p>
@@ -56,6 +57,39 @@
 		<tr id="opTable"></tr>
 	</table>
 	
+</div>
+<div id="consultarCaja" title="Consultar Cajas">
+	
+	<table>
+		<tr>
+			<td>Año</td>
+			<td>Mes</td>
+			<td>Caja</td>
+		</tr>
+		<tr>
+			<td><input type="text" id="ano" name="ano" /></td>
+			<td>
+				<select name="mes" id="mes">
+					<option value="enero">enero</option>
+					<option value="febrero">febrero</option>
+					<option value="marzo">marzo</option>
+					<option value="abril">abril</option>
+					<option value="mayo">mayo</option>
+					<option value="junio">junio</option>
+					<option value="julio">julio</option>
+					<option value="agosto">agosto</option>
+					<option value="septiembre">septiembre</option>
+					<option value="octubre">octubre</option>
+					<option value="noviembre">noviembre</option>
+					<option value="diciembre">diciembre</option>
+				</select>
+			</td>
+			<td><input type="text" id="numero" name="numero"/></td>
+			<td><button onclick="consultarCaja();">Consultar</button></td>
+		</tr>
+		<tr><td id="resultCaja"></td></tr>
+	</table>
+		
 </div>
 <!-- =========================================== MODALS ======================================================== -->
 	</body>
