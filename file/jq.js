@@ -13,6 +13,7 @@ $(function(){
 			$( "#numero" ).val("");
 		}
 	});
+	$( "#retirarCaja" ).dialog({modal: true,autoOpen: false, width: 600, beforeClose: function( event, ui ) {}});
 });
 
 
@@ -431,7 +432,7 @@ function submitOpsSearch(){
 			    		transaccion = "<button id='botonRetirar' onclick='retirarCarpeta(" + theFolderId + ");' >Retirar del archivo</button>";
 			    	}
 			    }
-			    if(operacion['estado']==1){
+			    if(operacion['estado']==1 || operacion['estado']==2){
 			    	estado="La carpeta esta en poder de " + operacion['usuario'];
 			    	if(operacion['log']==3 || operacion['log']==4 || operacion['log']==16 || operacion['log']==17){
 			    		transaccion = "<button onclick='devolverCarpeta(" + theFolderId + ");' >Devolver al archivo</button>";
@@ -559,4 +560,77 @@ function consultarCaja(){
 	});
 }
 
+function consultarCaja(){
+	var term;
+ 
+	 //term = "monthDropdown="+$("#monthDropdown").val() + "&" + "yearDropdown="+ $("#yearDropdown").val();
+	 url = "consultar-caja.php";
+	 // Send the data using post
+	 var posting = $.post( url, {ano: $("#ano").val(), mes: $("#mes").val(), numero: $("#numero").val()} );
+	 //alert(term);
+	 // Put the results in a div
+	  
+	  posting.done(function( data ) {
+	  //alert(theFolderId);
+	  
+	    if(data!=""){
+	    	$( "#resultCaja" ).empty();
+	    	$( "#resultCaja" ).append(data);
+		//$( "#opTable" ).append( stringOps );
+		}else{
+			alert("Shit!");
+		}
+			 
+	    
+	});
+}
 
+
+function retirarCaja(){
+	var term;
+ 
+	 //term = "monthDropdown="+$("#monthDropdown").val() + "&" + "yearDropdown="+ $("#yearDropdown").val();
+	 url = "retirar-caja.php";
+	 // Send the data using post
+	 var posting = $.post( url, {ano: $("#anoR").val(), mes: $("#mesR").val(), numero: $("#numeroR").val()} );
+	 //alert(term);
+	 // Put the results in a div
+	  
+	  posting.done(function( data ) {
+	  //alert(theFolderId);
+	  
+	    if(data!=""){
+	    	$( "#resultRetiroCaja" ).empty();
+	    	$( "#resultRetiroCaja" ).append(data);
+		//$( "#opTable" ).append( stringOps );
+		}else{
+			alert("Shit!");
+		}
+			 
+	    
+	});
+}
+function devolverCaja(){
+	var term;
+ 
+	 //term = "monthDropdown="+$("#monthDropdown").val() + "&" + "yearDropdown="+ $("#yearDropdown").val();
+	 url = "devolver-caja.php";
+	 // Send the data using post
+	 var posting = $.post( url, {ano: $("#anoR").val(), mes: $("#mesR").val(), numero: $("#numeroR").val()} );
+	 //alert(term);
+	 // Put the results in a div
+	  
+	  posting.done(function( data ) {
+	  //alert(theFolderId);
+	  	alert(data);
+	    if(data!=""){
+	    	$( "#resultRetiroCaja" ).empty();
+	    	$( "#resultRetiroCaja" ).append(data);
+		//$( "#opTable" ).append( stringOps );
+		}else{
+			alert("Shit!");
+		}
+			 
+	    
+	});
+}

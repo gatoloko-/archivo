@@ -56,7 +56,10 @@
 					
 					$resultado = $mysqli->query($query);
 					while($theFolder=$resultado->fetch_assoc()){
-						echo "<tr><td>".$theFolder['id']."</td><td>".$theFolder['nombre']."</td></tr>";
+						echo "<tr>
+									<td>".$theFolder['id']."</td>
+									<td>".$theFolder['nombre']."</td>
+								</tr>";
 						
 					}
 					
@@ -72,7 +75,7 @@
 						<td>Fecha</td>				
 					</tr>
 				<?php
-					$historial = $q->query_table("historial", "LIMIT 50");
+					$historial = $q->query_table("historial", "ORDER BY fecha DESC LIMIT 50 ");
 					foreach ($historial as $val){
 						$user = $q->query_field_("users", "nombre", "user_id", $val['usuario']);
 						$admin = $q->query_field_("users", "nombre", "user_id", $val['administrador']);
@@ -91,6 +94,10 @@
 							echo "retiro";
 						}elseif($val['transaccion']==0){
 							echo "devolución";
+						}elseif($val['transaccion']==2){
+							echo "Retiro caja";
+						}elseif($val['transaccion']==3){
+							echo "Devolución caja";
 						}
 						echo "</td>";
 						

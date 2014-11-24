@@ -62,7 +62,7 @@ if($operacion['carpeta']!=""){
 	echo $operacion['mes'].",";
 	echo $operacion['numero'].",";
 	echo $operacion['estado'].",";
-	if($operacion['estado']==1){
+	if($operacion['estado']==1 or $operacion['estado']==2){
 		echo $operacion['idUsuario'].",";
 		echo $operacion['nombre'].",";
 	}elseif($operacion['estado']==0){

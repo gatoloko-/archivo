@@ -39,7 +39,8 @@
 			<?php nav() ?>
 			
 			<a class="myButtons" onclick="showDialog('consultarOp');">Consultar operacion</a><br/>
-			<a class="myButtons" onclick="showDialog('consultarCaja');">Consultar caja</a>
+			<a class="myButtons" onclick="showDialog('consultarCaja');">Consultar caja</a><br />
+			<a class="myButtons" onclick="showDialog('retirarCaja');">Retirar caja</a>
 			
 			<footer>
 				<p>
@@ -93,6 +94,51 @@
 	</table>
 		
 </div>
+
+
+<div id="retirarCaja" title="Retirar Caja">
+	<table>
+		<tr>
+			<td>Año</td>
+			<td><input type="text" name="anoR" id="anoR" /></td>
+			<td colspan="3" id="resultRetiroCaja"></td>
+		</tr>
+		<tr>
+			<td>Mes</td>
+			<td>
+				<select name="mesR" id="mesR">
+					<option value="enero">enero</option>
+					<option value="febrero">febrero</option>
+					<option value="marzo">marzo</option>
+					<option value="abril">abril</option>
+					<option value="mayo">mayo</option>
+					<option value="junio">junio</option>
+					<option value="julio">julio</option>
+					<option value="agosto">agosto</option>
+					<option value="septiembre">septiembre</option>
+					<option value="octubre">octubre</option>
+					<option value="noviembre">noviembre</option>
+					<option value="diciembre">diciembre</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Caja</td>
+			<td><input type="text" name="numeroR" id="numeroR" /></td>
+		</tr>
+		<tr>
+			<td align="center">
+				<button onclick="retirarCaja();">Retirar Caja</button>
+				
+			</td>
+			<td><button onclick="devolverCaja();">Devolver Caja</button></td>
+		</tr>
+	</table>
+	
+</div>
+
+
+
 <!-- =========================================== MODALS ======================================================== -->
 	</body>
 </html>

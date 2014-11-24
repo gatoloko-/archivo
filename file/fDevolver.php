@@ -10,7 +10,7 @@ if($mysqli->query($consulta)){
 		echo "1";
 	}
 	include 'link/link.php';
-	$mysqli->query("INSERT INTO historial(carpeta, usuario, administrador, transaccion) VALUES(".$carpeta.", ".$_SESSION['user_id'].", ".$_SESSION['user_id'].", 0)");
+	$mysqli->query("INSERT INTO historial(carpeta, usuario, administrador, transaccion) VALUES(".$carpeta.", ".$_SESSION['user_id'].", ".$_SESSION['user_id'].", 3)");
 }else{
 	echo "shit!";
 }
