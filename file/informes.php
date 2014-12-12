@@ -21,7 +21,7 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
-		<title>HTML</title>
+		<title>SOCO - Informes</title>
 		<meta name="description" content="">
 		<meta name="author" content="MANAGER">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
@@ -34,7 +34,7 @@
 	<body>
 		<div>
 			<header>
-				<h1>Sistema de gestion de carpetas</h1>
+				<img src="logo.jpg" />
 			</header>
 			<?php nav() ?>
 
@@ -44,21 +44,35 @@
 					<tr bgcolor="#D9D9D9" >
 						<th>Carpeta</th>
 						<th>Operario</th>
+						<th>Fecha</th>
+						<th>Solicitar devolución.</th>
 					</tr>
 					
 				
 				<?php
 					include '/link/link.php';
 					$queryUsers = 
-					
+					$estilo = "";
 					
 					$query = "CALL carpetas_prestadas()";
 					
 					$resultado = $mysqli->query($query);
 					while($theFolder=$resultado->fetch_assoc()){
+						$date = new DateTime($theFolder['fecha']);
+						$today = new DateTime();
+						if(($date->diff($today)->d)>=5){
+							$estilo = "style='background: #FF0000;'";
+						}else{
+							$estilo = "style='background: #FFFFFF;'";
+						}
 						echo "<tr>
 									<td>".$theFolder['id']."</td>
 									<td>".$theFolder['nombre']."</td>
+									<td ".$estilo.">".$date->diff($today)->d." dias</td>
+									<td align='center'><a href='mailto:".$theFolder['user_email']."?body=Por favor no sea barsa y devuelva la carpeta ".$theFolder['id']." hace ".$date->diff($today)->d." dias que fue retirada del archivo.%0D%0A %0D%0AAtte. SOCO'><img src='/file/mail.jpg'></a></td>
+									
+									
+									
 								</tr>";
 						
 					}

@@ -34,7 +34,7 @@
 	<body>
 		<div>
 			<header>
-				<h1>Sistema de gestion de carpetas</h1>
+				<img src="logo.jpg" />
 			</header>
 			<?php nav() ?>
 			

@@ -44,7 +44,7 @@ function submitFormCaja(){
 						    	$("#caja").dialog("close");
 						    }
 						    if(data=="2"){
-						    	alert("La carpeta que intenta crear ya existe");
+						    	alert("La caja que intenta crear ya existe");
 						    } 
 		  				});
 		  

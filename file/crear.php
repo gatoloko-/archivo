@@ -20,7 +20,7 @@
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 
-		<title>HTML</title>
+		<title>SOCO - Crear</title>
 		<?php the_header() ?>
 		<meta name="description" content="">
 		<meta name="author" content="MANAGER">
@@ -42,7 +42,7 @@
 	<body>
 		<div>
 			<header>
-				<h1>Sistema de gestion de carpetas</h1>
+				<img src="logo.jpg" />
 			</header>
 			<?php nav() ?>
 

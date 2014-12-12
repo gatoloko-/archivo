@@ -19,7 +19,7 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		
-		<title>HTML</title>
+		<title>SOCO - Home</title>
 		<meta name="description" content="">
 		<meta name="author" content="MANAGER">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
@@ -32,7 +32,7 @@
 	<body>
 		<div>
 			<header>
-				<h1>Sistema de gestion de carpetas</h1>
+				<img src="logo.jpg" />
 			</header>
 			<?php nav() ?>
 
